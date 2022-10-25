@@ -8,9 +8,9 @@ class App extends Component {
     index: 0,
   };
 
-  handleNextPokemon = () => {
+  handleNextPokemon = (pokemonNumber) => {
     this.setState((prevState) => ({
-      index: prevState.index + 1,
+      index: (prevState.index + 1) % pokemonNumber,
     }));
   };
 
