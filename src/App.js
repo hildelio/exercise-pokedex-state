@@ -1,33 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+
 import './App.css';
 import Pokedex from './components/Pokedex';
+
 import pokemonList from './data';
 
-class App extends Component {
-  state = {
-    index: 0,
-  };
-
-  handleNextPokemon = (pokemonNumber) => {
-    this.setState((prevState) => ({
-      index: (prevState.index + 1) % pokemonNumber,
-    }));
-  };
-
-  render() {
-    const { index } = this.state;
-    return (
-      <div className="App">
-        <Pokedex pokemonList={ pokemonList[index] } />
-        <button
-          type="button"
-          onClick={ () => this.handleNextPokemon(pokemonList.length) }
-        >
-          Próximo pokémon
-        </button>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <Pokedex pokemonList={ pokemonList } />
+    </div>
+  );
 }
 
 export default App;
